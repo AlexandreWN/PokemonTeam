@@ -45,3 +45,19 @@ Pode copiar, versionar ou mandar pra alguém. O app lê o mesmo formato de volta
     public/          index.html, style.css, app.js — a interface
     times/           seus times salvos (.txt)
     iniciar.bat      atalho pra subir o app no Windows
+
+## Licença e isenção de responsabilidade
+
+Distribuído sob a [Licença MIT](LICENSE) — use, copie e modifique à vontade.
+
+**O software é fornecido "COMO ESTÁ", sem garantia de nenhum tipo.** O autor não se
+responsabiliza por qualquer dano, perda de dados, prejuízo ou problema decorrente do uso
+(ou da impossibilidade de uso) deste app — incluindo, por exemplo, times que não funcionem
+como esperado no jogo ou dados que fiquem desatualizados em relação ao modpack.
+
+Este é um projeto de fã, sem qualquer vínculo, patrocínio ou aprovação de Nintendo,
+Game Freak, The Pokémon Company, Cobblemon, Cobbleverse ou Smogon. *Pokémon* e todas as
+marcas relacionadas pertencem aos seus respectivos donos. Os dados exibidos vêm da
+[PokeAPI](https://pokeapi.co/) e do [data.pkmn.cc](https://data.pkmn.cc/) (sets do Smogon,
+cujo conteúdo é de autoria do Smogon e seus colaboradores) e são usados apenas para
+consulta pessoal.
