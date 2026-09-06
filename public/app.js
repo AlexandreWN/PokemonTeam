@@ -173,6 +173,7 @@ async function fetchPokemon(name) {
     sprite: (p.sprites.other && p.sprites.other['official-artwork'] && p.sprites.other['official-artwork'].front_default)
       || p.sprites.front_default || '',
     types: p.types.map((t) => t.type.name),
+    matchups: await computeMatchups(p.types.map((t) => t.type.name)),
     stats,
     abilities: p.abilities.map((a) => ({ name: prettyWords(a.ability.name), hidden: a.is_hidden })),
     movePool,
@@ -191,6 +192,58 @@ async function fetchPokemon(name) {
     swaps: '',
     setSource: '',
   };
+}
+
+/* ---------------- efetividade de tipo ---------------- */
+
+const ALL_TYPES = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison',
+  'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
+
+const typeCache = {};
+async function typeRelations(typeName) {
+  if (typeCache[typeName]) return typeCache[typeName];
+  const t = await getJson(POKEAPI + '/type/' + encodeURIComponent(typeName));
+  const names = (list) => list.map((x) => x.name);
+  const rel = {
+    double: names(t.damage_relations.double_damage_from),
+    half: names(t.damage_relations.half_damage_from),
+    none: names(t.damage_relations.no_damage_from),
+  };
+  typeCache[typeName] = rel;
+  return rel;
+}
+
+// multiplicador de dano recebido para cada um dos 18 tipos, combinando os tipos do Pokemon
+async function computeMatchups(types) {
+  const mult = {};
+  ALL_TYPES.forEach((t) => { mult[t] = 1; });
+  for (const t of types) {
+    let rel;
+    try { rel = await typeRelations(t); } catch { continue; }
+    rel.double.forEach((a) => { mult[a] *= 2; });
+    rel.half.forEach((a) => { mult[a] *= 0.5; });
+    rel.none.forEach((a) => { mult[a] *= 0; });
+  }
+  return mult;
+}
+
+const MULT_LABEL = { 0: '0×', 0.25: '¼×', 0.5: '½×', 1: '1×', 2: '2×', 4: '4×' };
+const multLabel = (m) => MULT_LABEL[m] || m + '×';
+
+// agrupa os 18 tipos em fraco / resiste / imune / normal
+function groupMatchups(mult) {
+  const groups = { weak: [], resist: [], immune: [], normal: [] };
+  if (!mult) return groups;
+  ALL_TYPES.forEach((t) => {
+    const m = mult[t];
+    if (m === 0) groups.immune.push([t, m]);
+    else if (m > 1) groups.weak.push([t, m]);
+    else if (m < 1) groups.resist.push([t, m]);
+    else groups.normal.push([t, m]);
+  });
+  groups.weak.sort((a, b) => b[1] - a[1]);
+  groups.resist.sort((a, b) => a[1] - b[1]);
+  return groups;
 }
 
 const moveCache = {};
@@ -338,7 +391,41 @@ function evsText(evs) {
 
 function statsLine(stats) {
   const bst = EV_KEYS.reduce((sum, k) => sum + (stats[k] || 0), 0);
-  return EV_KEYS.map((k) => EV_LABELS[k] + ' ' + (stats[k] || 0)).join(' · ') + '  (BST ' + bst + ')';
+  return EV_KEYS.map((k) => EV_LABELS[k] + ' ' + (stats[k] || 0)).join(' · ') + ' (BST ' + bst + ')';
+}
+
+const STAT_COLORS = { hp: '#7ee787', atk: '#f0a35e', def: '#e0c341', spa: '#6fa0ff', spd: '#9b7fd4', spe: '#f7768e' };
+const STAT_MAX = 255; // maior stat base do jogo — mantem as barras comparaveis entre Pokemon
+
+function statBars(stats) {
+  const bst = EV_KEYS.reduce((sum, k) => sum + (stats[k] || 0), 0);
+  const rows = EV_KEYS.map((k) => {
+    const v = stats[k] || 0;
+    const pct = Math.min(100, (v / STAT_MAX) * 100);
+    return '<div class="stat-row"><span class="k">' + EV_LABELS[k] + '</span><span class="v">' + v + '</span>'
+      + '<span class="bar"><i style="width:' + pct.toFixed(1) + '%;background:' + STAT_COLORS[k] + '"></i></span></div>';
+  }).join('');
+  return '<div class="stats">' + rows
+    + '<div class="stat-row total"><span class="k">BST</span><span class="v">' + bst + '</span>'
+    + '<span class="bar"><i style="width:' + Math.min(100, (bst / 720) * 100).toFixed(1) + '%;background:var(--txt-3)"></i></span></div></div>';
+}
+
+function effChip(t, m) {
+  const c = TYPE_COLORS[t] || '#8b93a1';
+  return '<span class="eff" style="color:' + c + '">' + esc(t) + '<b>' + multLabel(m) + '</b></span>';
+}
+
+function matchupBlock(mult) {
+  const g = groupMatchups(mult);
+  if (!g.weak.length && !g.resist.length && !g.immune.length) return '';
+  const row = (label, list) => (list.length
+    ? '<div class="mrow"><span class="label">' + label + '</span>' + list.map(([t, m]) => effChip(t, m)).join('') + '</div>'
+    : '');
+  return '<div class="matchups">'
+    + row('Fraco a', g.weak)
+    + row('Resiste', g.resist)
+    + row('Imune a', g.immune)
+    + '</div>';
 }
 
 function moveMeta(m) {
@@ -376,13 +463,15 @@ function renderCard(slot, index) {
         <h3>${esc(slot.name)}</h3>
       </div>
       <div class="evo">${esc(slot.evolution || '—')}</div>
-      <div class="evo">${esc(statsLine(slot.stats))}</div>
       <div class="types">${slot.types.map(typeBadge).join('')}</div>
       <div class="card-actions">
         <button class="btn btn-sm" data-act="suggest">Sugerir set (Smogon)</button>
         <button class="btn btn-sm btn-ghost btn-danger" data-act="remove">Remover</button>
       </div>
     </div>
+
+    ${statBars(slot.stats)}
+    ${matchupBlock(slot.matchups)}
 
     ${slot.setSource ? '<div class="set-src">Base: <b>' + esc(slot.setSource) + '</b> — editável</div>' : ''}
 
@@ -546,6 +635,12 @@ function serializeTeam(teamName) {
     lines.push('## ' + (i + 1) + '. ' + s.name + ' [' + s.api + ']');
     lines.push('Tipos: ' + s.types.map(prettyWords).join(' / '));
     if (s.evolution) lines.push('Linha evolutiva: ' + s.evolution);
+    lines.push('Stats: ' + statsLine(s.stats));
+    const g = groupMatchups(s.matchups);
+    const chips = (list) => list.map(([t, m]) => prettyWords(t) + ' ' + multLabel(m)).join(', ');
+    if (g.weak.length) lines.push('Fraco a: ' + chips(g.weak));
+    if (g.resist.length) lines.push('Resiste a: ' + chips(g.resist));
+    if (g.immune.length) lines.push('Imune a: ' + chips(g.immune));
     lines.push('Nature: ' + (s.nature || '—'));
     lines.push('Habilidade: ' + (s.ability || '—') + (s.abilityNote ? ' | ' + s.abilityNote : ''));
     lines.push('Item: ' + (s.item || '—') + (s.itemNote ? ' | ' + s.itemNote : ''));
@@ -564,7 +659,9 @@ function serializeTeam(teamName) {
   return lines.join('\n');
 }
 
-const KNOWN_LABELS = ['Tipos', 'Linha evolutiva', 'Nature', 'Habilidade', 'Item', 'EVs', 'Set base', 'Papel', 'Trocas'];
+// rotulos reconhecidos na leitura do .txt (os derivados da API sao ignorados e recalculados)
+const KNOWN_LABELS = ['Tipos', 'Linha evolutiva', 'Stats', 'Fraco a', 'Resiste a', 'Imune a',
+  'Nature', 'Habilidade', 'Item', 'EVs', 'Set base', 'Papel', 'Trocas'];
 
 // le o .txt de volta para o estado (refaz o fetch do PokeAPI para sprite/tipos/movepool)
 async function parseTeam(text) {
