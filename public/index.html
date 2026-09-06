@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Montador de Time · Cobbleverse</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="eyebrow">Cobbleverse · Montador de time</div>
+    <h1>Party</h1>
+    <p class="sub">Busque no PokeAPI, puxe um set competitivo do Smogon como ponto de partida e ajuste tudo à mão. Salva em <code>.txt</code> na pasta <code>times/</code>.</p>
+
+    <div class="toolbar">
+      <div class="search">
+        <input id="search" type="text" autocomplete="off" placeholder="Buscar Pokémon (ex: gengar, sylveon, ninetales-alola)" />
+        <div id="results" class="dropdown" hidden></div>
+      </div>
+      <button id="add" class="btn btn-primary" disabled>Adicionar ao time</button>
+      <span id="counter" class="counter">0 / 6</span>
+      <span class="spacer"></span>
+      <input id="teamName" type="text" placeholder="Nome do time" maxlength="60" />
+      <button id="save" class="btn">Salvar time</button>
+      <button id="history" class="btn btn-ghost">Histórico</button>
+      <button id="clear" class="btn btn-ghost">Limpar</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="team" class="team-grid"></section>
+  <p id="empty" class="empty">Nenhum Pokémon no time ainda. Busque um acima para começar.</p>
+
+  <footer class="foot">
+    <p><strong>Fontes:</strong> dados de espécie, tipos, habilidades, golpes e evoluções via <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">PokeAPI</a>; sets sugeridos via <a href="https://data.pkmn.cc/" target="_blank" rel="noreferrer">data.pkmn.cc</a> (Smogon).</p>
+    <p class="warn">Nenhuma das duas fontes conhece as particularidades do Cobbleverse/Cobblemon (formas exclusivas, mudanças de evolução como Linking Cord, disponibilidade de itens). Trate as sugestões como ponto de partida e ajuste conforme a run.</p>
+  </footer>
+</main>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2>Times salvos</h2>
+      <button id="modalClose" class="btn btn-ghost">Fechar</button>
+    </div>
+    <div id="modalBody" class="modal-body"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

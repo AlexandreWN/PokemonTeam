@@ -1,0 +1,87 @@
+# Time: time 1
+# Salvo em: 06/09/2026, 20:39:12
+# Gerado pelo Montador de Time (Cobbleverse) — PokeAPI + Smogon
+
+## 1. Gengar [gengar]
+Tipos: Ghost / Poison
+Linha evolutiva: Gastly → Haunter (Nv. 25) → Gengar (troca — Linking Cord no Cobblemon)
+Nature: Timid
+Habilidade: Cursed Body
+Item: Air Balloon
+EVs: 4 Def / 252 SpA / 252 Spe
+Golpes:
+- Nasty Plot | dark | - | status
+- Shadow Ball | ghost | 80 | special
+- Sludge Wave | poison | 95 | special
+- Focus Blast | fighting | 120 | special
+Set base: Smogon ru · "Nasty Plot"
+
+## 2. Sylveon [sylveon]
+Tipos: Fairy
+Linha evolutiva: Eevee → Sylveon (golpe Fairy)
+Nature: Modest
+Habilidade: Pixilate
+Item: Choice Specs
+EVs: 4 Def / 252 SpA / 252 Spe
+Golpes:
+- Hyper Voice | normal | 90 | special
+- Psychic | psychic | 90 | special
+- Shadow Ball | ghost | 80 | special
+- Draining Kiss | fairy | 50 | special
+Set base: Smogon nu · "Choice Specs"
+
+## 3. Greninja [greninja]
+Tipos: Water / Dark
+Linha evolutiva: Froakie → Frogadier (Nv. 16) → Greninja (Nv. 36)
+Nature: Timid
+Habilidade: Battle Bond
+Item: Life Orb
+EVs: 252 SpA / 4 SpD / 252 Spe
+Golpes:
+- Hydro Pump | water | 110 | special
+- Dark Pulse | dark | 80 | special
+- Water Shuriken | water | 15 | special
+- Ice Beam | ice | 90 | special
+Set base: Smogon ou · "Battle Bond"
+
+## 4. Metagross [metagross]
+Tipos: Steel / Psychic
+Linha evolutiva: Beldum → Metang (Nv. 20) → Metagross (Nv. 45)
+Nature: Adamant
+Habilidade: Clear Body
+Item: Choice Band
+EVs: 252 Atk / 4 SpD / 252 Spe
+Golpes:
+- Heavy Slam | steel | - | physical
+- Earthquake | ground | 100 | physical
+- Knock Off | dark | 65 | physical
+- Bullet Punch | steel | 40 | physical
+Set base: Smogon uu · "Choice Band"
+
+## 5. Lucario [lucario]
+Tipos: Fighting / Steel
+Linha evolutiva: Riolu → Lucario (amizade 160, de dia)
+Nature: Jolly
+Habilidade: Inner Focus
+Item: Life Orb
+EVs: 252 Atk / 4 SpD / 252 Spe
+Golpes:
+- Swords Dance | normal | - | status
+- Close Combat | fighting | 120 | physical
+- Meteor Mash | steel | 90 | physical
+- Extreme Speed | normal | 80 | physical
+Set base: Smogon ru · "Swords Dance"
+
+## 6. Chandelure [chandelure]
+Tipos: Ghost / Fire
+Linha evolutiva: Litwick → Lampent (Nv. 41) → Chandelure (Dusk Stone)
+Nature: Timid
+Habilidade: Flash Fire
+Item: Choice Specs
+EVs: 252 SpA / 4 SpD / 252 Spe
+Golpes:
+- Fire Blast | fire | 110 | special
+- Shadow Ball | ghost | 80 | special
+- Energy Ball | grass | 90 | special
+- Trick | psychic | - | status
+Set base: Smogon nu · "Choice Specs"
