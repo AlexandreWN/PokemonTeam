@@ -1,10 +1,14 @@
-# Time: time 1
-# Salvo em: 06/09/2026, 20:39:12
+# Time: Jhoto
+# Salvo em: 06/09/2026, 21:17:32
 # Gerado pelo Montador de Time (Cobbleverse) — PokeAPI + Smogon
 
 ## 1. Gengar [gengar]
 Tipos: Ghost / Poison
 Linha evolutiva: Gastly → Haunter (Nv. 25) → Gengar (troca — Linking Cord no Cobblemon)
+Stats: HP 60 · Atk 65 · Def 60 · SpA 130 · SpD 75 · Spe 110 (BST 500)
+Fraco a: Ground 2×, Psychic 2×, Ghost 2×, Dark 2×
+Resiste a: Poison ¼×, Bug ¼×, Grass ½×, Fairy ½×
+Imune a: Normal 0×, Fighting 0×
 Nature: Timid
 Habilidade: Cursed Body
 Item: Air Balloon
@@ -19,6 +23,10 @@ Set base: Smogon ru · "Nasty Plot"
 ## 2. Sylveon [sylveon]
 Tipos: Fairy
 Linha evolutiva: Eevee → Sylveon (golpe Fairy)
+Stats: HP 95 · Atk 65 · Def 65 · SpA 110 · SpD 130 · Spe 60 (BST 525)
+Fraco a: Poison 2×, Steel 2×
+Resiste a: Fighting ½×, Bug ½×, Dark ½×
+Imune a: Dragon 0×
 Nature: Modest
 Habilidade: Pixilate
 Item: Choice Specs
@@ -33,6 +41,10 @@ Set base: Smogon nu · "Choice Specs"
 ## 3. Greninja [greninja]
 Tipos: Water / Dark
 Linha evolutiva: Froakie → Frogadier (Nv. 16) → Greninja (Nv. 36)
+Stats: HP 72 · Atk 95 · Def 67 · SpA 103 · SpD 71 · Spe 122 (BST 530)
+Fraco a: Electric 2×, Grass 2×, Fighting 2×, Bug 2×, Fairy 2×
+Resiste a: Fire ½×, Water ½×, Ice ½×, Ghost ½×, Dark ½×, Steel ½×
+Imune a: Psychic 0×
 Nature: Timid
 Habilidade: Battle Bond
 Item: Life Orb
@@ -47,6 +59,10 @@ Set base: Smogon ou · "Battle Bond"
 ## 4. Metagross [metagross]
 Tipos: Steel / Psychic
 Linha evolutiva: Beldum → Metang (Nv. 20) → Metagross (Nv. 45)
+Stats: HP 80 · Atk 135 · Def 130 · SpA 95 · SpD 90 · Spe 70 (BST 600)
+Fraco a: Fire 2×, Ground 2×, Ghost 2×, Dark 2×
+Resiste a: Psychic ¼×, Normal ½×, Grass ½×, Ice ½×, Flying ½×, Rock ½×, Dragon ½×, Steel ½×, Fairy ½×
+Imune a: Poison 0×
 Nature: Adamant
 Habilidade: Clear Body
 Item: Choice Band
@@ -61,6 +77,10 @@ Set base: Smogon uu · "Choice Band"
 ## 5. Lucario [lucario]
 Tipos: Fighting / Steel
 Linha evolutiva: Riolu → Lucario (amizade 160, de dia)
+Stats: HP 70 · Atk 110 · Def 70 · SpA 115 · SpD 70 · Spe 90 (BST 525)
+Fraco a: Fire 2×, Fighting 2×, Ground 2×
+Resiste a: Bug ¼×, Rock ¼×, Normal ½×, Grass ½×, Ice ½×, Dragon ½×, Dark ½×, Steel ½×
+Imune a: Poison 0×
 Nature: Jolly
 Habilidade: Inner Focus
 Item: Life Orb
@@ -75,6 +95,10 @@ Set base: Smogon ru · "Swords Dance"
 ## 6. Chandelure [chandelure]
 Tipos: Ghost / Fire
 Linha evolutiva: Litwick → Lampent (Nv. 41) → Chandelure (Dusk Stone)
+Stats: HP 60 · Atk 55 · Def 90 · SpA 145 · SpD 90 · Spe 80 (BST 520)
+Fraco a: Water 2×, Ground 2×, Rock 2×, Ghost 2×, Dark 2×
+Resiste a: Bug ¼×, Fire ½×, Grass ½×, Ice ½×, Poison ½×, Steel ½×, Fairy ½×
+Imune a: Normal 0×, Fighting 0×
 Nature: Timid
 Habilidade: Flash Fire
 Item: Choice Specs

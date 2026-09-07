@@ -1,0 +1,104 @@
+# Time: Lendario
+# Salvo em: 06/09/2026, 21:34:30
+# Gerado pelo Montador de Time (Cobbleverse) — PokeAPI + Smogon
+
+## 1. Groudon [groudon]
+Tipos: Ground
+Linha evolutiva: Groudon
+Stats: HP 100 · Atk 150 · Def 140 · SpA 100 · SpD 90 · Spe 90 (BST 670)
+Fraco a: Water 2×, Grass 2×, Ice 2×
+Resiste a: Poison ½×, Rock ½×
+Imune a: Electric 0×
+Nature: Impish
+Habilidade: Drought
+Item: Leftovers
+EVs: 240 HP / 252 Def / 16 Spe
+Golpes:
+- Spikes | ground | - | status
+- Precipice Blades | ground | 120 | physical
+- Stone Edge | rock | 100 | physical
+- Will-O-Wisp | fire | - | status
+Set base: Smogon ubers · "Defensive"
+
+## 2. Volcanion [volcanion]
+Tipos: Fire / Water
+Linha evolutiva: Volcanion
+Stats: HP 80 · Atk 110 · Def 120 · SpA 130 · SpD 90 · Spe 70 (BST 600)
+Fraco a: Electric 2×, Ground 2×, Rock 2×
+Resiste a: Fire ¼×, Ice ¼×, Steel ¼×, Bug ½×, Fairy ½×
+Nature: Modest
+Habilidade: Water Absorb
+Item: Choice Specs
+EVs: 4 Def / 252 SpA / 252 Spe
+Golpes:
+- Steam Eruption | water | 110 | special
+- Flamethrower | fire | 90 | special
+- Sludge Bomb | poison | 90 | special
+- Earth Power | ground | 90 | special
+Set base: Smogon ou · "Choice Specs"
+
+## 3. Yveltal [yveltal]
+Tipos: Dark / Flying
+Linha evolutiva: Yveltal
+Stats: HP 126 · Atk 131 · Def 95 · SpA 131 · SpD 98 · Spe 99 (BST 680)
+Fraco a: Electric 2×, Ice 2×, Rock 2×, Fairy 2×
+Resiste a: Grass ½×, Ghost ½×, Dark ½×
+Imune a: Ground 0×, Psychic 0×
+Nature: Naive
+Habilidade: Dark Aura
+Item: Life Orb
+EVs: —
+Golpes:
+- Dark Pulse | dark | 80 | special
+- Oblivion Wing | flying | 80 | special
+- Taunt | dark | - | status
+- Sucker Punch | dark | 70 | physical
+Set base: Smogon nationaldexubers · "Specially Offensive"
+
+## 4. Mewtwo [mewtwo]
+Tipos: Psychic
+Linha evolutiva: Mewtwo
+Stats: HP 106 · Atk 110 · Def 90 · SpA 154 · SpD 90 · Spe 130 (BST 680)
+Fraco a: Bug 2×, Ghost 2×, Dark 2×
+Resiste a: Fighting ½×, Psychic ½×
+Nature: Timid
+Habilidade: Pressure
+Item: Heavy-Duty Boots
+EVs: 252 SpA / 4 SpD / 252 Spe
+Golpes:
+- Nasty Plot | dark | - | status
+- Psystrike | psychic | 100 | special
+- Grass Knot | grass | - | special
+- Taunt | dark | - | status
+Set base: Smogon ubers · "Nasty Plot"
+
+## 5. Xerneas [xerneas]
+Tipos: Fairy
+Linha evolutiva: Xerneas
+Stats: HP 126 · Atk 131 · Def 95 · SpA 131 · SpD 98 · Spe 99 (BST 680)
+Fraco a: Poison 2×, Steel 2×
+Resiste a: Fighting ½×, Bug ½×, Dark ½×
+Imune a: Dragon 0×
+Nature: —
+Habilidade: —
+Item: —
+EVs: —
+Golpes:
+
+## 6. Articuno [articuno]
+Tipos: Ice / Flying
+Linha evolutiva: Articuno
+Stats: HP 90 · Atk 85 · Def 100 · SpA 95 · SpD 125 · Spe 85 (BST 580)
+Fraco a: Rock 4×, Fire 2×, Electric 2×, Steel 2×
+Resiste a: Grass ½×, Bug ½×
+Imune a: Ground 0×
+Nature: Calm
+Habilidade: Pressure
+Item: Heavy-Duty Boots
+EVs: 248 HP / 8 Def / 252 SpD
+Golpes:
+- Roost | flying | - | status
+- Freeze-Dry | ice | 70 | special
+- U-turn | bug | 70 | physical
+- Haze | ice | - | status
+Set base: Smogon pu · "Wall"

@@ -456,6 +456,7 @@ function renderCard(slot, index) {
   const evTotal = EV_KEYS.reduce((s, k) => s + Number(slot.evs[k] || 0), 0);
 
   el.innerHTML = `
+    <div class="card-left">
     <div class="card-head">
       <div class="card-title">
         <span class="slot-no">0${index + 1}</span>
@@ -472,6 +473,9 @@ function renderCard(slot, index) {
 
     ${statBars(slot.stats)}
     ${matchupBlock(slot.matchups)}
+    </div>
+
+    <div class="card-right">
 
     ${slot.setSource ? '<div class="set-src">Base: <b>' + esc(slot.setSource) + '</b> — editável</div>' : ''}
 
@@ -523,6 +527,7 @@ function renderCard(slot, index) {
         <div class="label">Trocas / observações</div>
         <textarea data-f="swaps" placeholder="alternativas de golpe, item, plano B...">${esc(slot.swaps)}</textarea>
       </div>
+    </div>
     </div>
   `;
 
